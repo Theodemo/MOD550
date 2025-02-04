@@ -43,6 +43,8 @@ if __name__ == '__main__':
 ```
 
 ## File Structure
+- `code/` : Directory containing code
+  - `exercise_1.py` : Code for generate datasets
 - `data/` : Directory containing generated files
   - `sum_data.csv` : Generated dataset
   - `metadata.txt` : Dataset metadata
