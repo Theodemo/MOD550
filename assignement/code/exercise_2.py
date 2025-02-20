@@ -10,6 +10,9 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 
+
+
+
 observed = [2, 4, 6, 8]
 predicted = [2.5, 3.5, 5.5, 7.5]
 
@@ -38,11 +41,10 @@ def generate_data():
     
     noise = np.random.normal(scale=0.2, size=len(x))
     y_noisy = y_clean + noise
-    print(len(x), len(y_noisy), len(y_clean))
 
     plt.figure(figsize=(8, 5))
     plt.plot(x, y_clean, label="Without noise")
-    plt.scatter(x, y_noisy, color='red', alpha=0.6, label="With noise")
+    plt.plot(x, y_noisy, color='red', alpha=0.6, label="With noise")
     plt.xlabel("x")
     plt.ylabel("f(x)")
     plt.legend()
