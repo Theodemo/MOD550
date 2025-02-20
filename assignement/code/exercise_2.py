@@ -11,8 +11,6 @@ import torch.nn as nn
 import torch.optim as optim
 
 
-
-
 observed = [2, 4, 6, 8]
 predicted = [2.5, 3.5, 5.5, 7.5]
 
@@ -83,9 +81,9 @@ def plot_kmeans(x, y_noisy):
     for k in cluster_range:
         kmeans = KMeans(n_clusters=k, random_state=42, n_init=10)
         kmeans.fit(np.column_stack((x, y_noisy)))
-        inertia_values.append(kmeans.inertia_)  # Intra-cluster variance
+        inertia_values.append(kmeans.inertia_)
 
-    # Plotting inertia vs. number of clusters
+    
     plt.figure(figsize=(8, 5))
     plt.plot(cluster_range, inertia_values, marker='o', linestyle='-')
     plt.xlabel("Number of Clusters")
@@ -95,6 +93,24 @@ def plot_kmeans(x, y_noisy):
 
 plot_kmeans(x, y_noisy)
 
+
+
+
+def kmeans_clustering(x, y_noisy, k_optimal):
+
+    kmeans = KMeans(n_clusters=k_optimal, random_state=42, n_init=10)
+    labels = kmeans.fit_predict(np.column_stack((x, y_noisy)))
+
+    plt.figure(figsize=(8, 5))
+    plt.scatter(x, y_noisy, c=labels, cmap='viridis', alpha=0.6, label="Clusters")
+    plt.xlabel("x")
+    plt.ylabel("y")
+    plt.title(f"K-Means Clustering (k={k_optimal})")
+    plt.legend()
+    plt.show()
+
+k_optimal = 4
+kmeans_clustering(x, y_noisy, k_optimal)
 
 
 def linear_regression(x, y_noisy):
