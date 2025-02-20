@@ -1,4 +1,0 @@
-Noise: 60
-Number of points: 200
-Number of datasets: 3
-Description: Dataset of linear and random data
