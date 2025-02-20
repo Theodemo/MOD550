@@ -94,8 +94,6 @@ def plot_kmeans(x, y_noisy):
 plot_kmeans(x, y_noisy)
 
 
-
-
 def kmeans_clustering(x, y_noisy, k_optimal):
 
     kmeans = KMeans(n_clusters=k_optimal, random_state=42, n_init=10)
@@ -134,9 +132,6 @@ def linear_regression(x, y_noisy):
     plt.show()
 
 linear_regression(x, y_noisy)
-
-
-
 
 
 X_tensor = torch.tensor(x, dtype=torch.float32).view(-1, 1)
