@@ -34,6 +34,17 @@ for name, func in factory.items():
           f"Average execution time: {exec_time} seconds")
 
 def generate_data():
+    '''
+    Generate a sinusoidal function with noise
+    
+    Returns:
+    x : numpy array
+        The x values
+    y_noisy : numpy array
+        The noisy y values
+    y_clean : numpy array
+        The clean y values
+    '''
     x = np.linspace(0, 10, 100)
 
     A, B, C = 1, 2, 0  
@@ -55,41 +66,66 @@ def generate_data():
 
 x, y_noisy, y_clean = generate_data()
 
-# Testing multiple cluster numbers
-cluster_range = range(1, 10)
-inertia_values = []
 
-for k in cluster_range:
-    kmeans = KMeans(n_clusters=k, random_state=42, n_init=10)
-    kmeans.fit(np.column_stack((x, y_noisy)))
-    inertia_values.append(kmeans.inertia_)  # Intra-cluster variance
+def plot_kmeans(x, y_noisy):
+    '''
+    Plot the elbow method for KMeans
+    
+    Parameters:
+    x : numpy array
+        The x values
+    y_noisy : numpy array
+        The noisy y values
+    '''
+    cluster_range = range(1, 10)
+    inertia_values = []
 
-# Plotting inertia vs. number of clusters
-plt.figure(figsize=(8, 5))
-plt.plot(cluster_range, inertia_values, marker='o', linestyle='-')
-plt.xlabel("Number of Clusters")
-plt.ylabel("Intra-cluster Inertia")
-plt.title("Variance vs. Number of Clusters (Elbow Method)")
-plt.show()
+    for k in cluster_range:
+        kmeans = KMeans(n_clusters=k, random_state=42, n_init=10)
+        kmeans.fit(np.column_stack((x, y_noisy)))
+        inertia_values.append(kmeans.inertia_)  # Intra-cluster variance
+
+    # Plotting inertia vs. number of clusters
+    plt.figure(figsize=(8, 5))
+    plt.plot(cluster_range, inertia_values, marker='o', linestyle='-')
+    plt.xlabel("Number of Clusters")
+    plt.ylabel("Intra-cluster Inertia")
+    plt.title("Variance vs. Number of Clusters")
+    plt.show()
+
+plot_kmeans(x, y_noisy)
 
 
 
-lr = LinearRegression()
-lr.fit(x.reshape(-1, 1), y_noisy)
-y_pred_lr = lr.predict(x.reshape(-1, 1))
+def linear_regression(x, y_noisy):
+    '''
+    Perform linear regression on the noisy data
+    
+    Parameters:
+    x : numpy array
+        The x values
+    y_noisy : numpy array
+        The noisy y values
+    '''
+    lr = LinearRegression()
+    lr.fit(x.reshape(-1, 1), y_noisy)
+    y_pred_lr = lr.predict(x.reshape(-1, 1))
+    plt.figure(figsize=(8, 5))
+    plt.scatter(x, y_noisy, label="Noisy Data", alpha=0.5)
+    plt.plot(x, y_pred_lr, color="red", label="Linear Regression")
+    plt.legend()
+    plt.title("Linear Regression on Noisy Data")
+    plt.show()
 
-plt.figure(figsize=(8, 5))
-plt.scatter(x, y_noisy, label="Noisy Data", alpha=0.5)
-plt.plot(x, y_pred_lr, color="red", label="Linear Regression")
-plt.legend()
-plt.title("Linear Regression on Noisy Data")
-plt.show()
+linear_regression(x, y_noisy)
 
-# Data as tensors
+
+
+
+
 X_tensor = torch.tensor(x, dtype=torch.float32).view(-1, 1)
 Y_tensor = torch.tensor(y_noisy, dtype=torch.float32).view(-1, 1)
 
-# Defining the NN model
 class SimpleNN(nn.Module):
     def __init__(self):
         super(SimpleNN, self).__init__()
@@ -104,7 +140,7 @@ model = SimpleNN()
 criterion = nn.MSELoss()
 optimizer = optim.Adam(model.parameters(), lr=0.01)
 
-# Training the model
+
 epochs = 100000
 losses = []
 for epoch in range(epochs):
@@ -115,7 +151,6 @@ for epoch in range(epochs):
     optimizer.step()
     losses.append(loss.item())
 
-# Predictions and visualization
 y_pred_nn = model(X_tensor).detach().numpy()
 plt.figure(figsize=(8, 5))
 plt.scatter(x, y_noisy, alpha=0.5, label="Noisy Data")
