@@ -9,13 +9,15 @@ $$| Y - \hat{Y} \|_W = \sqrt{(Y - \hat{Y})^T W (Y - \hat{Y})}$$
 Avec $W$ défini comme :
 
 
-$$ W = \text{diag} \left( \frac{1}{\theta_1^2}, \frac{1}{\theta_2^2}, \dots, \frac{1}{\theta_n^2} \right)$$
+$$ W = \text{diag} \left( \frac{1}{\theta_1^2}, \frac{1}{\theta_2^2}, \dots, \frac{1}{\theta_n^2} \right) $$
 
 
 Cela peut aussi s'écrire sous forme développée :
 
 
-$$ | Y - \hat{Y} \|_W = \sqrt{\sum_{i=1}^{n} \frac{(y_i - \hat{y}_i)^2}{\theta_i^2}} $$
+$$$$
+ 
+$$| Y - \hat{Y} |_W = \sqrt{\sum_{i=1}^{n} \frac{(y_i - \hat{y}_i)^2}{\theta_i^2}} $$
 
 
 ## Explication des paramètres
