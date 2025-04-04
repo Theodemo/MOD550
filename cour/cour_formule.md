@@ -1,6 +1,6 @@
 # **Norme pondérée de l'erreur**
 
-La norme pondérée entre les prédictions \( \hat{Y} \) et les observations \( Y \) est donnée par :
+La norme pondérée entre les prédictions $\hat{Y}$ et les observations $Y$ est donnée par :
 
 
 $$| Y - \hat{Y} \|_W = \sqrt{(Y - \hat{Y})^T W (Y - \hat{Y})}$$
@@ -9,16 +9,17 @@ $$| Y - \hat{Y} \|_W = \sqrt{(Y - \hat{Y})^T W (Y - \hat{Y})}$$
 Avec $W$ défini comme :
 
 
-$$W = \text{diag} \left( \frac{1}{\theta_1^2}, \frac{1}{\theta_2^2}, \dots, \frac{1}{\theta_n^2} \right)$$
+$$ W = \text{diag} \left( \frac{1}{\theta_1^2}, \frac{1}{\theta_2^2}, \dots, \frac{1}{\theta_n^2} \right)$$
 
 
 Cela peut aussi s'écrire sous forme développée :
 
 
-$$| Y - \hat{Y} \|_W = \sqrt{\sum_{i=1}^{n} \frac{(y_i - \hat{y}_i)^2}{\theta_i^2}}$$
+$$ | Y - \hat{Y} \|_W = \sqrt{\sum_{i=1}^{n} \frac{(y_i - \hat{y}_i)^2}{\theta_i^2}} $$
 
 
-### Explication des paramètres :
+## Explication des paramètres
+
 - $Y$  : Vecteur des observations ($n \times 1$).
 - $\hat{Y}$ : Vecteur des prédictions ($n \times 1$).
 - $W$ : Matrice diagonale contenant les poids $W = \text{diag}(1/\theta_1^2, 1/\theta_2^2, \dots, 1/\theta_n^2)$.
@@ -138,6 +139,7 @@ Après $m$ étapes, la solution finale est donnée par l'ensemble mis à jour $x
 ---
 
 ### **Explication des paramètres :**
+
 - $x_j^{(i)}$ : $i$-ème membre de l’ensemble des états à l’étape $j$.
 - $y$ : Vecteur des observations.
 - $\epsilon^{(i, j)}$ : Bruit ajouté aux observations à l’étape $j$.
@@ -157,6 +159,7 @@ L'ESMDA est particulièrement utilisé pour les problèmes d'inversion en ingén
 L'Iterative Ensemble Smoother (IES) est une méthode d'assimilation de données pour les systèmes dynamiques non linéaires, où la mise à jour des états se fait de manière itérative. L’IES utilise un ensemble d'états et procède à une série d'itérations pour affiner les estimations des états en fonction des observations.
 
 ### **1. Initialisation de l'ensemble :**
+
 On commence par un ensemble de $N$ états, noté $x_0^{(i)}$, pour $i = 1, \dots, N$. Ces états sont initialement générés à partir d'une distribution (généralement gaussienne).
 
 
@@ -193,6 +196,7 @@ Après les $k$ itérations, les membres de l'ensemble sont mis à jour pour donn
 ---
 
 ### **Explication des paramètres :**
+
 - $x_k^{(i)}$ : $i$-ème membre de l’ensemble des états après l’itération $k$.
 - $y_k$ : Vecteur des observations à l’itération $k$.
 - $H$ : Matrice d'observation qui projette l'état dans l’espace des observations.
