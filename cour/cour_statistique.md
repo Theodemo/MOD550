@@ -1,40 +1,256 @@
-Voici les détails des formules avec les variables et symboles expliqués pour chaque concept mentionné :
+# 📚 Table des Matières – Formules de Statistique
+
+## 1. Statistiques descriptives
+
+### 1.1. Mesures de tendance centrale
+
+#### • Moyenne arithmétique simple 
+
+$$\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i$$
+
+- $x_i$  : les valeurs de la série
+- $n$ : le nombre total de données
 
 ---
 
-## **1. Statistiques Descriptives**
+#### • Moyenne pondérée
 
-### **Moyenne**  
-$$\bar{x} = \frac{\sum x_i}{n}$$  
-- \( \bar{x} \) : Moyenne de l’échantillon
-- \( x_i \) : Valeurs individuelles de l'échantillon
-- \( n \) : Nombre total de données
+$$\bar{x}_p = \frac{\sum_{i=1}^{n} x_i \cdot w_i}{\sum_{i=1}^{n} w_i}$$
 
-### **Médiane**  
-Si \( n \) est impair :  
-$$M = x_{\frac{n+1}{2}}$$  
-Si \( n \) est pair :  
+- $x_i$ : les valeurs
+- $w_i$ : les poids ou effectifs associés à chaque valeur
+
+---
+
+#### • Médiane
+
+Si $n$ est impair :
+
+$$M = x_{\frac{n+1}{2}}$$ 
+
+Si $n$ est pair : 
+
 $$M = \frac{x_{\frac{n}{2}} + x_{\frac{n}{2} + 1}}{2}$$  
-- \( M \) : Médiane (valeur centrale)
-- \( n \) : Nombre total de données
-- \( x_i \) : Valeurs triées de l'échantillon
 
-### **Mode**  
-$$ \text{Mode} = \arg\max_x f(x)$$  
+- $M$ : Médiane (valeur centrale)
+- $n$ : Nombre total de données
+- $x_i$ : Valeurs triées de l'échantillon
+
+---
+
+#### • Mode
+
+$$ \text{Mode} = \arg\max_x f(x)$$ 
+
 - Mode : Valeur la plus fréquente dans l’échantillon
-- \( f(x) \) : Fréquence de \( x \)
+- $f(x)$ : Fréquence de $x$
 
-### **Variance**  
-$$\sigma^2 = \frac{\sum (x_i - \bar{x})^2}{n}$$  
-- \( \sigma^2 \) : Variance
-- \( x_i \) : Valeurs individuelles de l'échantillon
-- \( \bar{x} \) : Moyenne de l'échantillon
-- \( n \) : Nombre total de données
+---
 
-### **Écart-type**  
-$$\sigma = \sqrt{\sigma^2}$$  
-- \( \sigma \) : Écart-type
-- \( \sigma^2 \) : Variance
+### 1.2. Mesures de dispersion
+
+#### • Étendue
+
+$$\text{Étendue} = x_{\text{max}} - x_{\text{min}}$$
+
+- $x_max$ : valeur maximale
+- $x_min$ : valeur minimale
+
+---
+
+#### • Variance
+
+$$s^2 = \frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})^2$$
+
+- $x_i$ : les valeurs de la série
+- $\bar{x}$ : la moyenne
+- $n$ : nombre total de données
+
+---
+
+#### • Écart-type
+
+$$\sigma = \sqrt{s^2}$$
+
+- Racine carrée de la variance  
+- Permet de mesurer l’**écart moyen à la moyenne**
+
+---
+
+#### • Écart interquartile
+
+$$IQR = Q_3 - Q_1$$
+
+- $Q_1$ : premier quartile (25 % des données)
+- $Q_3$ : troisième quartile (75 % des données)
+
+---
+
+#### • Coefficient de variation
+
+
+$$CV = \frac{\sigma}{\bar{x}} \times 100$$
+
+- $σ$ : écart-type
+- $\bar{x}$ : moyenne
+- Exprimé en **%**, il permet de comparer la dispersion entre séries
+
+---
+
+### 1.3. Mesures de position
+
+#### • Quartiles
+
+- $Q1$ : 25 % des données sont inférieures ou égales à cette valeur  
+- $Q2$ : médiane (50 %)  
+- $Q3$ : 75 % des données sont inférieures ou égales à cette valeur
+  
+#### • Déciles
+
+- $D1$ à $D9$ : divisent la série en 10 parties égales  
+  Ex : $D4$ = 40 % des données ≤ D4
+
+---
+
+#### • Centiles
+
+- $P1$ à $P99$ : divisent la série en 100 parties égales  
+  Ex : $P90$ = 90 % des données ≤ P90
+
+---
+
+### 1.4. Tableaux statistiques
+
+#### • Fréquence absolue
+
+$$f_i = \text{nombre d’occurrences de la valeur } x_i$$
+
+#### • Fréquence relative
+
+$$f_i^{\text{rel}} = \frac{f_i}{n}$$
+
+- $f_i$ : fréquence absolue
+- $n$ : total des données
+
+---
+
+#### • Fréquence cumulée croissante
+
+$$F_i = \sum_{j=1}^{i} f_j^{\text{rel}}$$
+
+- Permet de connaître le pourcentage de données **inférieures ou égales** à une valeur donnée.
+
+---
+
+#### • Effectifs en classes (données groupées)
+
+- On regroupe les valeurs dans des **intervalles** (ou classes)
+- Pour chaque classe, on calcule :
+  - **Effectif de classe** : nombre d’observations dans la classe
+  - **Centre de classe** : $c = \frac{\text{borne inférieure + borne supérieure}}{2}$
+
+---
+
+## 2. Statistiques à deux variables
+
+### 2.1. Covariance
+#### Formule de la covariance  
+#### Interprétation graphique  
+
+### 2.2. Corrélation
+#### Coefficient de corrélation linéaire de Pearson  
+#### Valeurs possibles et interprétation  
+
+### 2.3. Régression linéaire
+#### Équation de la droite de régression : `y = ax + b`  
+#### Calcul des coefficients `a` et `b`  
+#### Coefficient de détermination `R²`
+
+---
+
+## 3. Variables aléatoires et espérance
+
+### 3.1. Loi de probabilité discrète
+#### Fonction de probabilité  
+#### Espérance mathématique  
+#### Variance et écart-type  
+
+### 3.2. Lois usuelles
+#### Loi uniforme discrète  
+#### Loi de Bernoulli  
+#### Loi binomiale
+
+$$P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}$$
+
+- $P(X = k)$ : Probabilité d’obtenir exactement $k$ succès
+- $n$ : Nombre d’essais
+- $k$ : Nombre de succès souhaités
+- $p$ : Probabilité de succès dans un essai
+- $\binom{n}{k}$ : Coefficient binomial
+
+---
+
+#### Loi normale
+
+$$ f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x - \mu)^2}{2\sigma^2}}$$
+
+- $f(x)$ : Fonction de densité de probabilité de la loi normale
+- $x$ : Valeur de la variable aléatoire
+- $\mu$ : Moyenne
+- $\sigma$ : Écart-type
+
+---
+
+#### Loi de Poisson
+
+$$P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}$$
+
+- $P(X = k)$ : Probabilité d’avoir exactement $k$ événements
+- $\lambda$ : Taux moyen d'événements dans un intervalle
+- $k$ : Nombre d'événements
+- $k!$ : Factorielle de $k$
+
+---
+
+#### Loi géométrique
+
+---
+
+## 4. Estimation et intervalles
+
+### 4.1. Estimation ponctuelle
+#### Moyenne, proportion, variance d’un échantillon
+
+### 4.2. Intervalle de confiance
+#### Pour une moyenne (`σ` connue)  
+#### Pour une proportion  
+#### Taille d’un échantillon nécessaire
+
+---
+
+## 5. Tests statistiques (niveau avancé)
+
+### 5.1. Hypothèses
+#### Hypothèse nulle `H₀` et alternative `H₁`  
+#### Risque d’erreur de type I et II
+
+### 5.2. Test de moyenne / proportion
+#### Z-test  
+#### T-test (`σ` inconnue)
+
+### 5.3. Khi²
+#### Test d’indépendance  
+#### Test d’ajustement
+
+---
+
+## 6. Compléments (niveau licence et plus)
+#### Analyse de variance (ANOVA)  
+#### Régression multiple  
+#### Statistiques inférentielles  
+#### Bootstrap (estimation par rééchantillonnage)
+
+
 
 ### **Coefficient de variation**  
 $$CV = \frac{\sigma}{\bar{x}} \times 100\%$$  
@@ -42,10 +258,6 @@ $$CV = \frac{\sigma}{\bar{x}} \times 100\%$$
 - \( \sigma \) : Écart-type
 - \( \bar{x} \) : Moyenne de l'échantillon
 
-### **Quartiles, percentiles**  
-Les quartiles et percentiles divisent les données en portions égales. Ils sont utilisés pour décrire la répartition des données, mais ne sont pas représentés par une formule unique ici.
-
----
 
 ## **2. Probabilités**
 
@@ -84,29 +296,9 @@ $$Var(X) = E(X^2) - (E(X))^2 $$
 - \( E(X^2) \) : Espérance de \( X^2 \)
 - \( E(X) \) : Espérance de \( X \)
 
-### **Loi binomiale**  
-$$P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}$$  
-- \( P(X = k) \) : Probabilité d’obtenir exactement \( k \) succès
-- \( n \) : Nombre d’essais
-- \( k \) : Nombre de succès souhaités
-- \( p \) : Probabilité de succès dans un essai
-- \( \binom{n}{k} \) : Coefficient binomial
 
-### **Loi normale**  
-$$ f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x - \mu)^2}{2\sigma^2}}$$  
-- \( f(x) \) : Fonction de densité de probabilité de la loi normale
-- \( x \) : Valeur de la variable aléatoire
-- \( \mu \) : Moyenne
-- \( \sigma \) : Écart-type
 
-### **Loi de Poisson**  
-$$P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}$$  
-- \( P(X = k) \) : Probabilité d’avoir exactement \( k \) événements
-- \( \lambda \) : Taux moyen d'événements dans un intervalle
-- \( k \) : Nombre d'événements
-- \( k! \) : Factorielle de \( k \)
 
----
 
 ## **4. Inférence Statistique**
 
