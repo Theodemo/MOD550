@@ -103,7 +103,7 @@ $$\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i$$
 
 #### Moyenne pondérée
 
-$$\bar{x}_p = \frac{\sum_{i=1}^{n} x_i \cdot w_i}{\sum_{i=1}^{n} w_i}$$
+$$\bar{x} = \frac{\sum_{i=1}^{n} x_i \cdot w_i}{\sum_{i=1}^{n} w_i}$$
 
 - $x_i$ : les valeurs
 - $w_i$ : les poids ou effectifs associés à chaque valeur
