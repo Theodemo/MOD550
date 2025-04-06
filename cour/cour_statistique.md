@@ -1,17 +1,29 @@
 <!-- /TOC -->
 - [Formules de Statistique](#formules-de-statistique)
   - [1. Statistiques descriptives](#1-statistiques-descriptives)
-    - [1.1. Mesures de tendance centrale](#11-mesures-de-tendance-centrale)
-      - [• Moyenne arithmétique simple](#-moyenne-arithmétique-simple)
-      - [• Moyenne pondérée](#-moyenne-pondérée)
-      - [• Médiane](#-médiane)
-      - [• Mode](#-mode)
-    - [1.2. Mesures de dispersion](#12-mesures-de-dispersion)
+    - [1.1 Mesures de tendance centrale](#11-mesures-de-tendance-centrale)
+      - [Moyenne arithmétique simple](#moyenne-arithmétique-simple)
+      - [Moyenne pondérée](#moyenne-pondérée)
+      - [Moyenne géométrique](#moyenne-géométrique)
+      - [Moyenne harmonique](#moyenne-harmonique)
+      - [Médiane](#médiane)
+      - [Mode](#mode)
+    - [1.2 Mesures de dispersion](#12-mesures-de-dispersion)
       - [• Étendue](#-étendue)
       - [• Variance](#-variance)
       - [• Écart-type](#-écart-type)
-      - [• Écart interquartile](#-écart-interquartile)
-      - [• Coefficient de variation](#-coefficient-de-variation)
+      - [• Écart interquartile (IQR)](#-écart-interquartile-iqr)
+      - [Coefficient de variation](#coefficient-de-variation)
+    - [1.3 Mesures de position](#13-mesures-de-position)
+      - [Quartiles](#quartiles)
+      - [Percentiles](#percentiles)
+      - [Déciles](#déciles)
+    - [1.4 Représentations graphiques](#14-représentations-graphiques)
+      - [Histogramme](#histogramme)
+      - [Diagramme en boîte (boxplot)](#diagramme-en-boîte-boxplot)
+      - [Nuage de points](#nuage-de-points)
+      - [Diagramme circulaire](#diagramme-circulaire)
+      - [Barres, courbes](#barres-courbes)
       - [Coefficient de corrélation linéaire de Pearson](#coefficient-de-corrélation-linéaire-de-pearson)
       - [Valeurs possibles et interprétation](#valeurs-possibles-et-interprétation)
   - [2. Régression et Corrélation](#2-régression-et-corrélation)
@@ -30,7 +42,9 @@
       - [Loi binomiale](#loi-binomiale)
       - [Loi normale](#loi-normale)
       - [Loi de Poisson](#loi-de-poisson)
-      - [Loi géométrique](#loi-géométrique)
+    - [Loi géométrique](#loi-géométrique)
+      - [Formule de probabilité](#formule-de-probabilité)
+      - [Espérance et variance](#espérance-et-variance)
   - [4. Estimation et intervalles](#4-estimation-et-intervalles)
     - [4.1. Estimation ponctuelle](#41-estimation-ponctuelle)
       - [Moyenne, proportion, variance d’un échantillon](#moyenne-proportion-variance-dun-échantillon)
@@ -43,8 +57,8 @@
       - [Hypothèse nulle `H₀` et alternative `H₁`](#hypothèse-nulle-h-et-alternative-h)
       - [Risque d’erreur de type I et II](#risque-derreur-de-type-i-et-ii)
     - [5.2. Test de moyenne / proportion](#52-test-de-moyenne--proportion)
-      - [Z-test](#z-test)
-      - [T-test (`σ` inconnue)](#t-test-σ-inconnue)
+      - [Z-test (si $\\sigma$ connue)](#z-test-si-sigma-connue)
+      - [T-test (si $\\sigma$ inconnue)](#t-test-si-sigma-inconnue)
     - [5.3. Khi²](#53-khi)
       - [Test d’indépendance](#test-dindépendance)
       - [Test d’ajustement](#test-dajustement)
@@ -76,9 +90,9 @@
 
 ## 1. Statistiques descriptives
 
-### 1.1. Mesures de tendance centrale
+### 1.1 Mesures de tendance centrale
 
-#### • Moyenne arithmétique simple
+#### Moyenne arithmétique simple
 
 $$\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i$$
 
@@ -87,7 +101,7 @@ $$\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i$$
 
 ---
 
-#### • Moyenne pondérée
+#### Moyenne pondérée
 
 $$\bar{x}_p = \frac{\sum_{i=1}^{n} x_i \cdot w_i}{\sum_{i=1}^{n} w_i}$$
 
@@ -96,7 +110,11 @@ $$\bar{x}_p = \frac{\sum_{i=1}^{n} x_i \cdot w_i}{\sum_{i=1}^{n} w_i}$$
 
 ---
 
-#### • Médiane
+#### Moyenne géométrique
+
+#### Moyenne harmonique
+
+#### Médiane
 
 Si $n$ est impair :
 
@@ -112,7 +130,7 @@ $$M = \frac{x_{\frac{n}{2}} + x_{\frac{n}{2} + 1}}{2}$$
 
 ---
 
-#### • Mode
+#### Mode
 
 $$ \text{Mode} = \arg\max_x f(x)$$
 
@@ -121,7 +139,7 @@ $$ \text{Mode} = \arg\max_x f(x)$$
 
 ---
 
-### 1.2. Mesures de dispersion
+### 1.2 Mesures de dispersion
 
 #### • Étendue
 
@@ -151,7 +169,7 @@ $$\sigma = \sqrt{s^2}$$
 
 ---
 
-#### • Écart interquartile
+#### • Écart interquartile (IQR)
 
 $$IQR = Q_3 - Q_1$$
 
@@ -160,13 +178,35 @@ $$IQR = Q_3 - Q_1$$
 
 ---
 
-#### • Coefficient de variation
+#### Coefficient de variation
 
 $$CV = \frac{\sigma}{\bar{x}} \times 100\%$$
 
 - $CV$ : Coefficient de variation
 - $\sigma$ : Écart-type
 - $\bar{x}$ : Moyenne de l'échantillon
+
+---
+
+### 1.3 Mesures de position
+
+#### Quartiles
+
+#### Percentiles
+
+#### Déciles
+
+### 1.4 Représentations graphiques
+
+#### Histogramme
+
+#### Diagramme en boîte (boxplot)
+
+#### Nuage de points
+
+#### Diagramme circulaire
+
+#### Barres, courbes
 
 #### Coefficient de corrélation linéaire de Pearson
 
@@ -302,7 +342,25 @@ $$P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}$$
 
 ---
 
-#### Loi géométrique
+### Loi géométrique
+
+La **loi géométrique** modélise le **nombre d’essais nécessaires avant le premier succès** dans une série d’épreuves de Bernoulli indépendantes.
+
+#### Formule de probabilité
+
+$$P(X = k) = (1 - p)^{k - 1} \cdot p$$
+
+où :
+
+- $X$ est le nombre d’essais jusqu’au premier succès,
+- $k \geq 1$ est un entier,
+- $p$ est la probabilité de succès à chaque essai.
+
+---
+
+#### Espérance et variance
+
+$$E(X) = \frac{1}{p}, \quad V(X) = \frac{1 - p}{p^2}$$
 
 ---
 
@@ -312,13 +370,63 @@ $$P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}$$
 
 #### Moyenne, proportion, variance d’un échantillon
 
+- **Moyenne échantillonnale** :
+  
+  $$\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i$$
+
+- **Proportion échantillonnale** :
+  
+  $$\hat{p} = \frac{\text{nombre de succès}}{n}$$
+
+- **Variance échantillonnale** :
+  
+  $$s^2 = \frac{1}{n - 1} \sum_{i=1}^{n} (x_i - \bar{x})^2$$
+
+où :
+
+- $n$ est la taille de l’échantillon,
+- $x_i$ sont les valeurs de l’échantillon,
+- $\bar{x}$ est la moyenne de l’échantillon,
+- $\hat{p}$ est la proportion estimée.
+
+---
+
 ### 4.2. Intervalle de confiance
 
 #### Pour une moyenne (`σ` connue)
 
+$$IC = \left[ \bar{x} - z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}},\ \bar{x} + z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}} \right]$$
+
+où :
+
+- $\bar{x}$ est la moyenne de l’échantillon,
+- $\sigma$ est l’écart-type de la population,
+- $n$ est la taille de l’échantillon,
+- $z_{\alpha/2}$ est la valeur critique de la loi normale.
+
 #### Pour une proportion
 
+$$IC = \left[ \hat{p} - z_{\alpha/2} \cdot \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}},\ \hat{p} + z_{\alpha/2} \cdot \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}} \right]$$
+
+où :
+
+- $\hat{p}$ est la proportion estimée,
+- $n$ est la taille de l’échantillon,
+- $z_{\alpha/2}$ est la valeur critique.
+
 #### Taille d’un échantillon nécessaire
+
+Pour une proportion :
+
+$$n = \frac{z_{\alpha/2}^2 \cdot \hat{p}(1 - \hat{p})}{E^2}$$
+
+Pour une moyenne :
+
+$$n = \left( \frac{z_{\alpha/2} \cdot \sigma}{E} \right)^2$$
+
+où :
+
+- $E$ est la **marge d’erreur souhaitée**.
 
 ---
 
@@ -328,19 +436,55 @@ $$P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}$$
 
 #### Hypothèse nulle `H₀` et alternative `H₁`
 
+- **H₀** : hypothèse qu'on teste (ex : $\mu = \mu_0$)
+- **H₁** : hypothèse alternative (ex : $\mu \ne \mu_0$, $\mu > \mu_0$, ou $\mu < \mu_0$)
+
 #### Risque d’erreur de type I et II
+
+- **Erreur de type I** : rejeter H₀ alors qu’elle est vraie (probabilité = $\alpha$)
+- **Erreur de type II** : ne pas rejeter H₀ alors qu’elle est fausse (probabilité = $\beta$)
+
+---
 
 ### 5.2. Test de moyenne / proportion
 
-#### Z-test
+#### Z-test (si $\sigma$ connue)
 
-#### T-test (`σ` inconnue)
+$$z = \frac{\bar{x} - \mu_0}{\frac{\sigma}{\sqrt{n}}}$$
+
+où :
+
+- $\bar{x}$ est la moyenne observée,
+- $\mu_0$ est la moyenne théorique,
+- $\sigma$ est l’écart-type connu,
+- $n$ est la taille de l’échantillon.
+
+#### T-test (si $\sigma$ inconnue)
+
+$$t = \frac{\bar{x} - \mu_0}{\frac{s}{\sqrt{n}}}$$
+
+où :
+
+- $s$ est l’écart-type de l’échantillon,
+- Les autres variables sont identiques au Z-test.
+- La statistique suit une loi de Student à $n - 1$ degrés de liberté.
+
+---
 
 ### 5.3. Khi²
 
 #### Test d’indépendance
 
+$$\chi^2 = \sum \frac{(O_{ij} - E_{ij})^2}{E_{ij}}$$
+
+où :
+
+- $O_{ij}$ est l’effectif observé dans la cellule $i, j$,
+- $E_{ij}$ est l’effectif attendu sous H₀.
+
 #### Test d’ajustement
+
+Même formule que le test d’indépendance, mais appliqué à un seul caractère pour vérifier l’adéquation à une loi théorique (loi uniforme, binomiale, etc.).
 
 ---
 
@@ -348,19 +492,46 @@ $$P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}$$
 
 ### Analyse de variance (ANOVA)
 
+Permet de comparer les moyennes de plusieurs groupes :
+
+$$F = \frac{\text{variance inter-groupe}}{\text{variance intra-groupe}}$$
+
+Si $F$ est grand, les groupes sont probablement différents.
+
 ### Régression multiple
+
+Extension de la régression linéaire à plusieurs variables indépendantes :
+
+$$y = a_1x_1 + a_2x_2 + \dots + a_kx_k + b$$
+
+où :
+
+- $x_1, x_2, \dots$ sont les variables explicatives.
 
 ### Statistiques inférentielles
 
+C’est l’ensemble des méthodes permettant de **faire des généralisations** ou des tests sur une population à partir d’un échantillon :
+
+- Estimations
+- Tests d’hypothèse
+- Intervalles de confiance
+
 ### Bootstrap (estimation par rééchantillonnage)
+
+Méthode de simulation pour approximer une distribution d’un estimateur :
+
+- Tirages aléatoires avec remise dans l’échantillon initial
+- Permet de calculer une estimation de l’écart-type, moyenne, intervalle de confiance même sans connaître la loi sous-jacente
+
+---
 
 ### Régression logistique
 
 $$P(Y=1 | X) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 X)}}$$
 
-- $ P(Y=1 | X) $ : Probabilité que $ Y $ soit égal à 1 pour une valeur de $ X $
-- $ \beta_0 $, $ \beta_1 $ : Coefficients de régression
-- $ X $ : Variable indépendante
+- $P(Y=1 | X)$ : Probabilité que $Y$ soit égal à 1 pour une valeur de $X$
+- $\beta_0$, $\beta_1$ : Coefficients de régression
+- $X$ : Variable indépendante
 
 ---
 
@@ -368,9 +539,9 @@ $$P(Y=1 | X) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 X)}}$$
 
 $$Z = XW $$
 
-- $ Z $ : Matrice des composantes principales
-- $ X $ : Matrice des données originales
-- $ W $ : Matrice des vecteurs propres
+- $Z$ : Matrice des composantes principales
+- $X$ : Matrice des données originales
+- $W$ : Matrice des vecteurs propres
 
 ---
 
@@ -378,10 +549,10 @@ $$Z = XW $$
 
 $$J = \sum_{i=1}^{k} \sum_{x \in C_i} ||x - \mu_i||^2$$
 
-- $ J $ : Fonction de coût (distances intra-cluster)
-- $ C_i $ : Cluster $ i $
-- $ \mu_i $ : Centre du cluster $ i $
-- $ x $ : Données dans le cluster
+- $J$ : Fonction de coût (distances intra-cluster)
+- $C_i$ : Cluster $i$
+- $\mu_i$ : Centre du cluster $i$
+- $x$ : Données dans le cluster
 
 ---
 
@@ -389,10 +560,10 @@ $$J = \sum_{i=1}^{k} \sum_{x \in C_i} ||x - \mu_i||^2$$
 
 $$Y_t = \alpha + \sum \phi_i Y_{t-i} + \sum \theta_j \varepsilon_{t-j} + \varepsilon_t$$
 
-- $ Y_t $ : Valeur de la série temporelle à l'instant $ t $
-- $ \alpha $ : Constante
-- $ \phi_i $ : Coefficients autorégressifs
-- $ \varepsilon_t $ : Résidus (bruit aléatoire)
+- $Y_t$ : Valeur de la série temporelle à l'instant $t$
+- $\alpha$ : Constante
+- $\phi_i$ : Coefficients autorégressifs
+- $\varepsilon_t$ : Résidus (bruit aléatoire)
 
 ---
 
@@ -406,13 +577,15 @@ $$P(A) = \frac{\text{nombre de cas favorables}}{\text{nombre de cas possibles}}$
 - Nombre de cas favorables : Nombre de résultats où $A$ se produit
 - Nombre de cas possibles : Total des résultats possibles
 
+---
+
 ### Probabilité conditionnelle
 
 $$P(A | B) = \frac{P(A \cap B)}{P(B)}$$
 
-- $P(A | B)$ : Probabilité de $A$ sachant que $ B $ s'est produit
-- $P(A \cap B) $ : Probabilité que $A $ et $B $ se produisent
-- $P(B) $ : Probabilité de $B $
+- $P(A | B)$ : Probabilité de $A$ sachant que $B$ s'est produit
+- $P(A \cap B)$ : Probabilité que $A$ et $B$ se produisent
+- $P(B)$ : Probabilité de $B$
 
 ---
 
@@ -420,10 +593,10 @@ $$P(A | B) = \frac{P(A \cap B)}{P(B)}$$
 
 $$P(A | B) = \frac{P(B | A) P(A)}{P(B)}$$
 
-- $P(A | B) $ : Probabilité de $A $ sachant $ B $
-- $ P(B | A) $: Probabilité de $B $ sachant $ A $
-- $ P(A) $ : Probabilité de $ A $
-- $ P(B) $ : Probabilité de $ B $
+- $P(A | B)$ : Probabilité de $A$ sachant $B$
+- $P(B | A)$: Probabilité de $B$ sachant $A$
+- $P(A)$ : Probabilité de $A$
+- $P(B)$ : Probabilité de $B$
 
 ---
 
@@ -433,9 +606,9 @@ $$P(A | B) = \frac{P(B | A) P(A)}{P(B)}$$
 
 $$E(X) = \sum x_i P(x_i)$$
 
-- $ E(X) $ : Espérance de la variable aléatoire $ X $
-- $ x_i $ : Valeurs possibles de $ X $
-- $ P(x_i) $ : Probabilité associée à $ x_i $
+- $E(X)$ : Espérance de la variable aléatoire $X$
+- $x_i$ : Valeurs possibles de $X$
+- $P(x_i)$ : Probabilité associée à $x_i$
 
 ---
 
@@ -443,9 +616,9 @@ $$E(X) = \sum x_i P(x_i)$$
 
 $$Var(X) = E(X^2) - (E(X))^2 $$
 
-- $ Var(X) $ : Variance de $ X $
-- $ E(X^2) $ : Espérance de $ X^2 $
-- $ E(X) $ : Espérance de $ X $
+- $Var(X)$ : Variance de $X$
+- $E(X^2)$ : Espérance de $X^2$
+- $E(X)$ : Espérance de $X$
 
 ---
 
@@ -453,43 +626,43 @@ $$Var(X) = E(X^2) - (E(X))^2 $$
 
 ### Intervalle de confiance pour une moyenne
 
-$$IC = \bar{x} \pm z_{\alpha/2} \frac{\sigma}{\sqrt{n}} $$
+$$IC = \bar{x} \pm z_{\alpha/2} \frac{\sigma}{\sqrt{n}}$$
 
-- $ IC $ : Intervalle de confiance pour la moyenne
-- $ \bar{x} $ : Moyenne de l’échantillon
-- $ z_{\alpha/2} $ : Valeur critique de la distribution normale
-- $ \sigma $ : Écart-type de l’échantillon
-- $ n $ : Taille de l’échantillon
+- $IC$ : Intervalle de confiance pour la moyenne
+- $\bar{x}$ : Moyenne de l’échantillon
+- $z_{\alpha/2}$ : Valeur critique de la distribution normale
+- $\sigma$: Écart-type de l’échantillon
+- $n$ : Taille de l’échantillon
 
 ---
 
 ### Test d’hypothèse
 
-- $ H_0 $ : Hypothèse nulle
-- $ H_1 $ : Hypothèse alternative
+- $H_0$ : Hypothèse nulle
+- $H_1$ : Hypothèse alternative
 
-Utilise une statistique de test (calculée à partir des données) pour comparer avec un seuil critique afin de décider si $ H_0 $ est rejetée.
+Utilise une statistique de test (calculée à partir des données) pour comparer avec un seuil critique afin de décider si $H_0$ est rejetée.
 
 ---
 
 ### Test t de Student
 
-$$ t = \frac{\bar{x} - \mu}{\frac{s}{\sqrt{n}}}$$
+$$t = \frac{\bar{x} - \mu}{\frac{s}{\sqrt{n}}}$$
 
-- $ t $ : Statistique de test
-- $ \bar{x} $ : Moyenne de l’échantillon
-- $ \mu $ : Moyenne hypothétique de la population
-- $ s $ : Écart-type de l’échantillon
-- $ n $ : Taille de l’échantillon
+- $t$ : Statistique de test
+- $\bar{x}$ : Moyenne de l’échantillon
+- $\mu$ : Moyenne hypothétique de la population
+- $s$ : Écart-type de l’échantillon
+- $n$ : Taille de l’échantillon
 
 ---
 
 ### Test du Chi-2
 
-$$ \chi^2 = \sum \frac{(O_i - E_i)^2}{E_i}$$
+$$\chi^2 = \sum \frac{(O_i - E_i)^2}{E_i}$$
 
-- $ \chi^2 $ : Statistique de test du chi-deux
-- $ O_i $ : Observations (fréquences observées)
-- $ E_i $ : Fréquences attendues
+- $\chi^2$ : Statistique de test du chi-deux
+- $O_i$ : Observations (fréquences observées)
+- $E_i$ : Fréquences attendues
 
 ---
