@@ -1,0 +1,94 @@
+# 📚 Table des Matières – Formules de Statistique
+
+## 1. Statistiques descriptives
+
+### 1.1. Mesures de tendance centrale
+- Moyenne arithmétique simple  
+- Moyenne pondérée  
+- Médiane  
+- Mode  
+
+### 1.2. Mesures de dispersion
+- Étendue  
+- Variance  
+- Écart-type  
+- Écart interquartile  
+- Coefficient de variation  
+
+### 1.3. Mesures de position
+- Quartiles  
+- Déciles  
+- Centiles  
+
+### 1.4. Tableaux statistiques
+- Fréquences absolues et relatives  
+- Cumul des fréquences  
+- Effectifs et regroupements en classes  
+
+---
+
+## 2. Statistiques à deux variables
+
+### 2.1. Covariance
+- Formule de la covariance  
+- Interprétation graphique  
+
+### 2.2. Corrélation
+- Coefficient de corrélation linéaire de Pearson  
+- Valeurs possibles et interprétation  
+
+### 2.3. Régression linéaire
+- Équation de la droite de régression : `y = ax + b`  
+- Calcul des coefficients `a` et `b`  
+- Coefficient de détermination `R²`
+
+---
+
+## 3. Variables aléatoires et espérance
+
+### 3.1. Loi de probabilité discrète
+- Fonction de probabilité  
+- Espérance mathématique  
+- Variance et écart-type  
+
+### 3.2. Lois usuelles
+- Loi uniforme discrète  
+- Loi de Bernoulli  
+- Loi binomiale  
+- Loi géométrique (facultatif)
+
+---
+
+## 4. Estimation et intervalles
+
+### 4.1. Estimation ponctuelle
+- Moyenne, proportion, variance d’un échantillon
+
+### 4.2. Intervalle de confiance
+- Pour une moyenne (`σ` connue)  
+- Pour une proportion  
+- Taille d’un échantillon nécessaire
+
+---
+
+## 5. Tests statistiques (niveau avancé)
+
+### 5.1. Hypothèses
+- Hypothèse nulle `H₀` et alternative `H₁`  
+- Risque d’erreur de type I et II
+
+### 5.2. Test de moyenne / proportion
+- Z-test  
+- T-test (`σ` inconnue)
+
+### 5.3. Khi²
+- Test d’indépendance  
+- Test d’ajustement
+
+---
+
+## 6. Compléments (niveau licence et plus)
+- Analyse de variance (ANOVA)  
+- Régression multiple  
+- Statistiques inférentielles  
+- Bootstrap (estimation par rééchantillonnage)
