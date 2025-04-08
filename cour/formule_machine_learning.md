@@ -1,8 +1,103 @@
+<!-- TOC -->
+- [Formules Mathématiques en Machine Learning](#formules-mathématiques-en-machine-learning)
+  - [1. Algèbre linéaire](#1-algèbre-linéaire)
+    - [Produit scalaire et produit matriciel](#produit-scalaire-et-produit-matriciel)
+    - [Transposition, inversion, trace et déterminant](#transposition-inversion-trace-et-déterminant)
+    - [Décomposition en valeurs propres et SVD](#décomposition-en-valeurs-propres-et-svd)
+    - [Normes de vecteurs : L1, L2, Frobenius](#normes-de-vecteurs--l1-l2-frobenius)
+    - [Projection et changement de base](#projection-et-changement-de-base)
+  - [2. Calcul différentiel](#2-calcul-différentiel)
+    - [Dérivées partielles](#dérivées-partielles)
+    - [Gradient, jacobien et hessien](#gradient-jacobien-et-hessien)
+    - [Règle de la chaîne (backpropagation)](#règle-de-la-chaîne-backpropagation)
+    - [Optimisation : descente de gradient (batch, stochastique, mini-batch)](#optimisation--descente-de-gradient-batch-stochastique-mini-batch)
+  - [3. Probabilités et statistiques](#3-probabilités-et-statistiques)
+    - [Espérance mathématique, variance, covariance](#espérance-mathématique-variance-covariance)
+    - [Loi normale, loi de Bernoulli, loi binomiale, loi de Poisson](#loi-normale-loi-de-bernoulli-loi-binomiale-loi-de-poisson)
+    - [Théorème de Bayes](#théorème-de-bayes)
+    - [Entropie, entropie croisée](#entropie-entropie-croisée)
+    - [Maximum de vraisemblance (MLE) et maximum a posteriori (MAP)](#maximum-de-vraisemblance-mle-et-maximum-a-posteriori-map)
+    - [Indépendance, corrélation, loi conjointe](#indépendance-corrélation-loi-conjointe)
+  - [4. Apprentissage supervisé](#4-apprentissage-supervisé)
+    - [Fonction de coût : MSE, MAE, log-loss](#fonction-de-coût--mse-mae-log-loss)
+    - [Régression linéaire : équation normale, fonction de coût](#régression-linéaire--équation-normale-fonction-de-coût)
+    - [Régression logistique : sigmoid, log-loss](#régression-logistique--sigmoid-log-loss)
+    - [SVM : fonction de marge, dualité, noyaux (kernel trick)](#svm--fonction-de-marge-dualité-noyaux-kernel-trick)
+    - [Arbres de décision : gain d'information, entropie](#arbres-de-décision--gain-dinformation-entropie)
+  - [5. Apprentissage non supervisé](#5-apprentissage-non-supervisé)
+    - [K-means : distance euclidienne, inertie](#k-means--distance-euclidienne-inertie)
+    - [PCA : variance expliquée, décomposition en vecteurs propres](#pca--variance-expliquée-décomposition-en-vecteurs-propres)
+    - [Clustering hiérarchique : linkage, dendrogramme](#clustering-hiérarchique--linkage-dendrogramme)
+    - [Réduction de dimension : t-SNE, UMAP (concepts + distances)](#réduction-de-dimension--t-sne-umap-concepts--distances)
+  - [6. Réseaux de neurones et deep learning](#6-réseaux-de-neurones-et-deep-learning)
+    - [Fonctions d'activation : sigmoid, tanh, ReLU, softmax](#fonctions-dactivation--sigmoid-tanh-relu-softmax)
+    - [Forward pass et backward pass](#forward-pass-et-backward-pass)
+    - [Fonction de perte : entropie croisée, MSE](#fonction-de-perte--entropie-croisée-mse)
+    - [Rétropropagation : règles de dérivation](#rétropropagation--règles-de-dérivation)
+    - [CNN : convolution, padding, stride](#cnn--convolution-padding-stride)
+    - [RNN, LSTM, GRU : mémoire, portes, état caché](#rnn-lstm-gru--mémoire-portes-état-caché)
+  - [7. Mesures de performance](#7-mesures-de-performance)
+    - [Accuracy, précision, rappel, F1-score](#accuracy-précision-rappel-f1-score)
+    - [Matrice de confusion](#matrice-de-confusion)
+    - [Courbes ROC et AUC](#courbes-roc-et-auc)
+    - [Courbe precision-recall](#courbe-precision-recall)
+    - [Score de silhouette (clustering)](#score-de-silhouette-clustering)
+  - [8. Régularisation et généralisation](#8-régularisation-et-généralisation)
+    - [L1 (Lasso), L2 (Ridge)](#l1-lasso-l2-ridge)
+    - [Dropout](#dropout)
+    - [Early stopping](#early-stopping)
+    - [Biais-variance (erreur quadratique totale = biais² + variance + bruit)](#biais-variance-erreur-quadratique-totale--biais--variance--bruit)
+  - [9. Méthodes bayésiennes](#9-méthodes-bayésiennes)
+    - [Théorème de Bayes appliqué aux modèles](#théorème-de-bayes-appliqué-aux-modèles)
+    - [Inférence bayésienne](#inférence-bayésienne)
+    - [Gaussian Processes (GP)](#gaussian-processes-gp)
+    - [Approximations : Monte Carlo, variational inference](#approximations--monte-carlo-variational-inference)
+  - [10. Approches Avancées](#10-approches-avancées)
+    - [10.1 Information Theory (Théorie de l'Information)](#101-information-theory-théorie-de-linformation)
+      - [Divergence de Kullback-Leibler (KL Divergence)](#divergence-de-kullback-leibler-kl-divergence)
+      - [Information mutuelle](#information-mutuelle)
+      - [Entropie de Shannon](#entropie-de-shannon)
+    - [10.2 Optimization Avancée](#102-optimization-avancée)
+      - [Méthodes de Newton](#méthodes-de-newton)
+      - [Méthodes du Lagrangien et multiplicateurs de Lagrange](#méthodes-du-lagrangien-et-multiplicateurs-de-lagrange)
+      - [Conditions KKT (Karush-Kuhn-Tucker)](#conditions-kkt-karush-kuhn-tucker)
+      - [Optimisation sous contraintes](#optimisation-sous-contraintes)
+    - [10.3 Apprentissage par Renforcement (RL)](#103-apprentissage-par-renforcement-rl)
+      - [Espérance de récompense](#espérance-de-récompense)
+      - [Équation de Bellman](#équation-de-bellman)
+      - [Q-learning](#q-learning)
+      - [Policy Gradients](#policy-gradients)
+    - [10.4 Théorie de la Généralisation](#104-théorie-de-la-généralisation)
+      - [Dimension VC (Vapnik-Chervonenkis)](#dimension-vc-vapnik-chervonenkis)
+      - [Bornes de l'apprentissage PAC (Probably Approximately Correct)](#bornes-de-lapprentissage-pac-probably-approximately-correct)
+      - [Complexité de Rademacher](#complexité-de-rademacher)
+    - [10.5 Graphes et Graph Neural Networks (GNN)](#105-graphes-et-graph-neural-networks-gnn)
+    - [Matrices d'adjacence](#matrices-dadjacence)
+    - [Laplacien de graphe](#laplacien-de-graphe)
+    - [Convolution sur graphe](#convolution-sur-graphe)
+    - [10.6 Apprentissage Semi-Supervisé \& Auto-Supervisé](#106-apprentissage-semi-supervisé--auto-supervisé)
+      - [Contraste de similarité](#contraste-de-similarité)
+      - [Perte de type InfoNCE (Noise Contrastive Estimation)](#perte-de-type-infonce-noise-contrastive-estimation)
+  - [11. Applications Spécifiques](#11-applications-spécifiques)
+    - [11.1 Traitement du Langage Naturel (NLP)](#111-traitement-du-langage-naturel-nlp)
+      - [Mécanisme d'attention](#mécanisme-dattention)
+      - [Self-attention et Transformer](#self-attention-et-transformer)
+      - [Embeddings (Word2Vec, GloVe)](#embeddings-word2vec-glove)
+      - [Codage positionnel (Positional Encoding)](#codage-positionnel-positional-encoding)
+    - [11.2 Vision par Ordinateur](#112-vision-par-ordinateur)
+      - [Augmentation de données](#augmentation-de-données)
+      - [Perte contrastive](#perte-contrastive)
+      - [Intersection over Union (IoU)](#intersection-over-union-iou)
+    - [11.3 Séries Temporelles](#113-séries-temporelles)
+      - [Autocorrélation](#autocorrélation)
+      - [Stationnarité](#stationnarité)
+      - [Décomposition des séries temporelles (tendance, saisonnalité, bruit)](#décomposition-des-séries-temporelles-tendance-saisonnalité-bruit)
+
+<!-- /TOC --># Vecteurs, matrices, tenseurs
+
 # Formules Mathématiques en Machine Learning
 
 ## 1. Algèbre linéaire
-
-### Vecteurs, matrices, tenseurs
 
 - **Vecteur** : Un vecteur est une liste ordonnée de nombres. En Machine Learning, il est souvent utilisé pour représenter des données d’entrée (features). 
   - Forme :  
@@ -305,26 +400,26 @@
 ## 10. Approches Avancées
 
 ### 10.1 Information Theory (Théorie de l'Information)
-### Divergence de Kullback-Leibler (KL Divergence)  
-### Information mutuelle  
-### Entropie de Shannon  
+#### Divergence de Kullback-Leibler (KL Divergence)  
+#### Information mutuelle  
+#### Entropie de Shannon  
 
 ### 10.2 Optimization Avancée
-### Méthodes de Newton  
-### Méthodes du Lagrangien et multiplicateurs de Lagrange  
-### Conditions KKT (Karush-Kuhn-Tucker)  
-### Optimisation sous contraintes  
+#### Méthodes de Newton  
+#### Méthodes du Lagrangien et multiplicateurs de Lagrange  
+#### Conditions KKT (Karush-Kuhn-Tucker)  
+#### Optimisation sous contraintes  
 
 ### 10.3 Apprentissage par Renforcement (RL)
-### Espérance de récompense  
-### Équation de Bellman  
-### Q-learning  
-### Policy Gradients  
+#### Espérance de récompense  
+#### Équation de Bellman  
+#### Q-learning  
+#### Policy Gradients  
 
 ### 10.4 Théorie de la Généralisation
-### Dimension VC (Vapnik-Chervonenkis)  
-### Bornes de l'apprentissage PAC (Probably Approximately Correct)  
-### Complexité de Rademacher  
+#### Dimension VC (Vapnik-Chervonenkis)  
+#### Bornes de l'apprentissage PAC (Probably Approximately Correct)  
+#### Complexité de Rademacher  
 
 ### 10.5 Graphes et Graph Neural Networks (GNN)
 ### Matrices d'adjacence  
@@ -332,25 +427,25 @@
 ### Convolution sur graphe  
 
 ### 10.6 Apprentissage Semi-Supervisé & Auto-Supervisé
-### Contraste de similarité  
-### Perte de type InfoNCE (Noise Contrastive Estimation)  
+#### Contraste de similarité  
+#### Perte de type InfoNCE (Noise Contrastive Estimation)  
 
 ## 11. Applications Spécifiques
 
 ### 11.1 Traitement du Langage Naturel (NLP)
-### Mécanisme d'attention  
-### Self-attention et Transformer  
-### Embeddings (Word2Vec, GloVe)  
-### Codage positionnel (Positional Encoding)  
+#### Mécanisme d'attention  
+#### Self-attention et Transformer  
+#### Embeddings (Word2Vec, GloVe)  
+#### Codage positionnel (Positional Encoding)  
 
 ### 11.2 Vision par Ordinateur
-### Augmentation de données  
-### Perte contrastive  
-### Intersection over Union (IoU)  
+#### Augmentation de données  
+#### Perte contrastive  
+#### Intersection over Union (IoU)  
 
 ### 11.3 Séries Temporelles
-### Autocorrélation  
-### Stationnarité  
-### Décomposition des séries temporelles (tendance, saisonnalité, bruit)  
+#### Autocorrélation  
+#### Stationnarité  
+#### Décomposition des séries temporelles (tendance, saisonnalité, bruit)  
 
 ---
